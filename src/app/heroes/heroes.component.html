@@ -1,24 +1,39 @@
-<h2>HEROES</h2>
-<ul class="heroes">
-<li *ngFor="let hero of heroes">
-    <button type="button" (click)="onSelectHero(hero)" 
-    [class.selected]="hero==selectedHero"
-    [class.dark]="hero==selectedHero"
-    >
-        <span class="badge">{{hero.id}}</span>
-        <span class="name">{{hero.name}}</span>
-    </button>
-</li>
+<div class="gird grid-cols-2">
 
-</ul>
+    <div class="bg-orange-100 columns-4 p-2 min-h-full">
+        <h2 class="font-bold text-lg">HEROES</h2>
+        <ul class="heroes">
+            <li *ngFor="let hero of heroes" class="p-2">
+                <button type="button"
+                
+                (click)="onSelectHero(hero)" 
+                class="bg-blue-950 text-white rounded
+                px-2 py-3 
+                hover:translate-x-1 hover:text-green-400
+                active:translate-y-1 active:text-blue-500 active:bg-slate-300
+                " 
+                [class.selected]="hero==selectedHero"
+                [class.dark]="hero==selectedHero"
+                >
+                    <span class="badge">{{hero.id}}</span>
+                    <span class="name">{{hero.name}}</span>
+                </button>
+            </li>
+        </ul>
+    </div>
 
-<div *ngIf="selectedHero">
-    <h3>HERO SELECTED</h3>
-    <h2>{{selectedHero.name | uppercase }}  Details</h2>
+    <div class="bg-gray-500 p-2">
+        <div *ngIf="selectedHero">
+            <h3 class="font-thin border-b-2 border-blue-900 text-white">HERO SELECTED</h3>
+            <h2>{{selectedHero.name | uppercase }}  Details</h2>
+            <div>
+                <label for="name"> Hero name:</label>
+                <input class="rounded"
+                id="name" [(ngModel)] = "selectedHero.name" placeholder="Name">
+            </div>
 
-    <div>
-        <label for="name"> Hero name:</label>
-        <input ud="name" [(ngModel)] = "selectedHero.name" placeholder="Name">
+        </div>
     </div>
 
 </div>
+
