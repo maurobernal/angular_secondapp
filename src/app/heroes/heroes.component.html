@@ -1,7 +1,8 @@
-<div class="gird grid-cols-2">
-
-    <div class="bg-orange-100 columns-4 p-2 min-h-full">
-        <h2 class="font-bold text-lg">HEROES</h2>
+<div class="grid grid-cols-2">
+    <div class="columns-1 bg-orange-100 p-2 min-h-full">
+        <h2 class="font-bold text-lg">
+            <i class="bi bi-bookmark-star">aquí</i>
+            HEROES</h2>
         <ul class="heroes">
             <li *ngFor="let hero of heroes" class="p-2">
                 <button type="button"
@@ -15,24 +16,17 @@
                 [class.selected]="hero==selectedHero"
                 [class.dark]="hero==selectedHero"
                 >
-                    <span class="badge">{{hero.id}}</span>
-                    <span class="name">{{hero.name}}</span>
+                    <i class="bi bi-balloon"></i>
+                    <span class="badge"> {{hero.id}} ]</span>
+                    <span class="name"> {{hero.name}} </span>
                 </button>
             </li>
         </ul>
     </div>
 
-    <div class="bg-gray-500 p-2">
-        <div *ngIf="selectedHero">
-            <h3 class="font-thin border-b-2 border-blue-900 text-white">HERO SELECTED</h3>
-            <h2>{{selectedHero.name | uppercase }}  Details</h2>
-            <div>
-                <label for="name"> Hero name:</label>
-                <input class="rounded"
-                id="name" [(ngModel)] = "selectedHero.name" placeholder="Name">
-            </div>
-
-        </div>
+    <div class="columns-1 bg-gray-500 p-2">
+        <!-- Hijo Details  -->
+        <app-hero-detail [selectedHero]="selectedHero"></app-hero-detail>
     </div>
 
 </div>
